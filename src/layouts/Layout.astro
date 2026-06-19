@@ -4,8 +4,8 @@ interface Props {
   description?: string;
 }
 const {
-  title = "Smaczna Uczta – Profesjonalny Catering",
-  description = "Smaczna Uczta to firma cateringowa oferująca wyjątkowe doznania kulinarne na każdą okazję – od firmowych lunchów po eleganckie wesela.",
+  title = "Smaczna Uczta – Catering na każdą okazję",
+  description = "Smaczna Uczta – profesjonalny catering dla firm, wesel i eventów. Świeże składniki, domowy smak, apetyczna oprawa. Zapytaj o wycenę!",
 } = Astro.props;
 import "../styles/global.css";
 ---
@@ -16,77 +16,37 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;500;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body>
     <a id="promo-bar" href="https://stronainternetowa.biz" target="_blank" rel="noopener">Przykładowa strona od <strong>stronainternetowa.biz</strong></a>
     <slot />
-
     <script>
-      // Intersection Observer for .reveal / .is-visible
-      const revealEls = document.querySelectorAll(".reveal");
-      if (revealEls.length > 0) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.12 }
-        );
-        revealEls.forEach((el) => observer.observe(el));
-      }
+      // Reveal on scroll
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach((el) => io.observe(el));
 
-      // Scrolled nav background
+      // Scrolled nav
       const nav = document.getElementById("nav");
       if (nav) {
-        const onScroll = () => {
-          if (window.scrollY > 60) {
-            nav.classList.add("scrolled");
-          } else {
-            nav.classList.remove("scrolled");
-          }
-        };
-        window.addEventListener("scroll", onScroll, { passive: true });
+        const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 40);
         onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
       }
 
-      // Mobile menu burger toggle
+      // Burger menu
       const burger = document.getElementById("burger");
       const mobileMenu = document.getElementById("mobile-menu");
-      const burgerOpen = document.getElementById("burger-open");
-      const burgerClose = document.getElementById("burger-close");
-
-      if (burger && mobileMenu) {
-        burger.addEventListener("click", () => {
-          const isOpen = mobileMenu.classList.contains("menu-open");
-          if (isOpen) {
-            mobileMenu.classList.remove("menu-open");
-            burgerOpen?.classList.remove("hidden");
-            burgerClose?.classList.add("hidden");
-          } else {
-            mobileMenu.classList.add("menu-open");
-            burgerOpen?.classList.add("hidden");
-            burgerClose?.classList.remove("hidden");
-          }
-        });
-
-        // Close on link click
-        mobileMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            mobileMenu.classList.remove("menu-open");
-            burgerOpen?.classList.remove("hidden");
-            burgerClose?.classList.add("hidden");
-          });
-        });
-      }
+      burger?.addEventListener("click", () => mobileMenu?.classList.toggle("hidden"));
+      mobileMenu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => mobileMenu?.classList.add("hidden")));
     </script>
   </body>
 </html>
