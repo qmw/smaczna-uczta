@@ -1,94 +1,147 @@
 @import "tailwindcss";
 
-/* ===== Smaczna Uczta — NEO-BRUTALIZM APETYCZNY ===== */
+/* ===== Smaczna Uczta — EDITORIAL FOOD MAGAZINE ===== */
 @theme {
-  --font-display: "Big Shoulders Display", Impact, sans-serif;
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body:    "DM Sans", system-ui, sans-serif;
   --font-mono:    "Space Mono", monospace;
-  --font-body:    "Nunito", system-ui, sans-serif;
 
-  --color-krem:    #f5f0e8;
-  --color-papier:  #faf7f0;
-  --color-ink:     #0d0d0d;
-  --color-red:     #e23b2e;
-  --color-yellow:  #f4a200;
-  --color-green:   #2f9e44;
-  --color-bone:    #ede8dd;
+  --color-papier:   #faf7f0;
+  --color-krem:     #efe7d6;
+  --color-aubergine:#2b211f;
+  --color-tomato:   #d8462f;
+  --color-olive:    #6b7a3a;
+  --color-text:     #241c1a;
+  --color-muted:    #7a6a60;
+  --color-border:   #d9cfc0;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--font-body);
-  color: var(--color-ink);
+  color: var(--color-text);
+  background: var(--color-papier);
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== Editorial helpers ===== */
+.serif { font-family: var(--font-display); }
+.mono  { font-family: var(--font-mono); }
+
+/* Thin rule lines — editorial dividers */
+.rule-line {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Elegancka cienka ramka (do zdjęć) */
+.photo-frame {
+  border: 1px solid var(--color-border);
   background: var(--color-krem);
 }
-body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-/* ===== Dot-grid background (receipt paper feel) ===== */
-body {
-  background-image: radial-gradient(var(--color-ink) 1px, transparent 1px);
-  background-size: 22px 22px;
-  background-color: var(--color-krem);
-}
-
-/* ===== NEO-BRUTALIZM narzędzia ===== */
-.nb  { border: 3px solid var(--color-ink); }
-.nb2 { border: 2px solid var(--color-ink); }
-.nb4 { border: 4px solid var(--color-ink); }
-
-.nb-shadow    { box-shadow:  7px  7px 0 0 var(--color-ink); }
-.nb-shadow-lg { box-shadow: 12px 12px 0 0 var(--color-ink); }
-.nb-shadow-red    { box-shadow: 7px 7px 0 0 var(--color-red); }
-.nb-shadow-yellow { box-shadow: 7px 7px 0 0 var(--color-yellow); }
-.nb-shadow-green  { box-shadow: 7px 7px 0 0 var(--color-green); }
-
-.nb-press { transition: transform .12s ease, box-shadow .12s ease; }
-.nb-press:hover { transform: translate(4px,4px); box-shadow: 3px 3px 0 0 var(--color-ink); }
-
-/* font helpers */
-.disp { font-family: var(--font-display); text-transform: uppercase; line-height: 0.88; font-weight: 800; }
-.mono { font-family: var(--font-mono); }
-
-/* obroty naklejki */
-.rot-1  { transform: rotate(-3deg); }
-.rot-2  { transform: rotate(2.5deg); }
-.rot-3  { transform: rotate(-1.5deg); }
-.rot-4  { transform: rotate(4deg); }
-.rot-n2 { transform: rotate(-2deg); }
-
-/* stroke tekst */
-.stroke-ink {
-  -webkit-text-stroke: 3px var(--color-ink);
-  color: transparent;
-}
-.stroke-red {
-  -webkit-text-stroke: 3px var(--color-red);
-  color: transparent;
+/* Section number — Space Mono etykiety */
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
 }
 
 /* ===== Reveal ===== */
 .reveal, .reveal-left, .reveal-right {
   opacity: 0;
-  transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1);
+  transition: opacity .65s ease, transform .65s cubic-bezier(.2,.8,.2,1);
 }
-.reveal       { transform: translateY(28px); }
-.reveal-left  { transform: translateX(-28px); }
-.reveal-right { transform: translateX(28px); }
+.reveal       { transform: translateY(24px); }
+.reveal-left  { transform: translateX(-24px); }
+.reveal-right { transform: translateX(24px); }
 .reveal.is-visible,
 .reveal-left.is-visible,
 .reveal-right.is-visible { opacity: 1; transform: none; }
 
-/* ===== Marquee ===== */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.marquee-track { animation: marquee 22s linear infinite; }
-
 /* ===== Selection ===== */
-::selection { background: var(--color-red); color: var(--color-papier); }
+::selection { background: var(--color-tomato); color: var(--color-papier); }
 
 /* ===== Pasek demo + nav offset (obowiązkowe) ===== */
-#promo-bar{position:fixed;top:0;left:0;right:0;z-index:60;height:2.25rem;display:flex;align-items:center;justify-content:center;gap:.4rem;background:var(--color-ink);color:var(--color-yellow);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:0 1rem;text-align:center;border-bottom:3px solid var(--color-ink)}
-#promo-bar strong{color:var(--color-papier)}
-#promo-bar:hover{background:#000}
-#nav{top:2.25rem}
+#promo-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  background: #0d0d10;
+  color: #f3f3f1;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 1rem;
+  text-align: center;
+  font-family: var(--font-mono);
+}
+#promo-bar strong { font-weight: 700; color: #f3f3f1; }
+#promo-bar:hover { background: #16161a; }
+#nav { top: 2.25rem; }
+
+/* ===== Nav scrolled ===== */
+#nav.scrolled {
+  background: color-mix(in srgb, var(--color-papier) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== Menu ingredient dotted lines ===== */
+.dot-leader {
+  flex: 1;
+  border-bottom: 1px dotted var(--color-border);
+  margin: 0 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Form elements */
+.field {
+  display: block;
+  width: 100%;
+  background: var(--color-papier);
+  border: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color .2s;
+}
+.field:focus {
+  border-color: var(--color-tomato);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-tomato) 15%, transparent);
+}
+
+/* Large editorial display heading */
+.hero-word {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 11vw, 10rem);
+  line-height: 0.88;
+  color: var(--color-aubergine);
+}
+
+/* Drop cap */
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 0.75;
+  float: left;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+  color: var(--color-tomato);
+}

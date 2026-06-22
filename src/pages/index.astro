@@ -4,24 +4,51 @@ import Layout from "../layouts/Layout.astro";
 const U = "https://images.unsplash.com/";
 const q = "?auto=format&fit=crop&q=80";
 const img = {
-  hero:   U + "photo-1414235077428-338989a2e8c0" + q + "&w=900",
-  onas1:  U + "photo-1577219491135-ce391730fb2c" + q + "&w=700",
+  hero:   U + "photo-1414235077428-338989a2e8c0" + q + "&w=1200",
+  onas1:  U + "photo-1577219491135-ce391730fb2c" + q + "&w=800",
   onas2:  U + "photo-1555939594-58d7cb561a8b" + q + "&w=700",
-  of1:    U + "photo-1555939594-58d7cb561a8b" + q + "&w=600",
-  of2:    U + "photo-1467003909585-2f8a72700288" + q + "&w=600",
-  of3:    U + "photo-1519671282429-b44b8c2cad81" + q + "&w=600",
-  of4:    U + "photo-1546069901-ba9599a7e63c" + q + "&w=600",
-  menu1:  U + "photo-1504674900247-0877df9cc836" + q + "&w=600",
-  menu2:  U + "photo-1414235077428-338989a2e8c0" + q + "&w=600",
+  of1:    U + "photo-1555939594-58d7cb561a8b" + q + "&w=700",
+  of2:    U + "photo-1467003909585-2f8a72700288" + q + "&w=700",
+  of3:    U + "photo-1519671282429-b44b8c2cad81" + q + "&w=700",
+  of4:    U + "photo-1546069901-ba9599a7e63c" + q + "&w=700",
+  menu1:  U + "photo-1504674900247-0877df9cc836" + q + "&w=700",
+  menu2:  U + "photo-1414235077428-338989a2e8c0" + q + "&w=700",
+  menu3:  U + "photo-1476224203421-9ac39bcb3327" + q + "&w=700",
 };
 
-const marqueeWords = ["CATERING", "FIRMY", "WESELA", "EVENTY", "LUNCHBOXY", "OD 20 OS.", "WARSZAWA", "★ SMACZNA UCZTA ★"];
-
 const oferta = [
-  { nr: "01", name: "Catering firmowy",    desc: "Codzienne lunche i przerwy kawowe dla biur. Zdrowe, smaczne posiłki — od poniedziałku do piątku.", price: "od 28 zł/os.", bg: "bg-[#f4a200]", img: img.of1, tag: "CODZIENNIE" },
-  { nr: "02", name: "Eventy i konferencje", desc: "Bufety, przerwy kawowe, kolacje galowe. Obsługujemy 20–2000 uczestników kompleksowo.", price: "od 65 zł/os.", bg: "bg-[#2f9e44]", img: img.of2, tag: "DO 2000 OS." },
-  { nr: "03", name: "Wesela i przyjęcia",  desc: "Menu weselne, tort od naszego cukiernika, obsługa kelnerska i dekoracja stołów. Twój wielki dzień.", price: "od 180 zł/os.", bg: "bg-[#e23b2e]", img: img.of3, tag: "NIEZAPOMNIANE" },
-  { nr: "04", name: "Pudełka lunchowe",    desc: "Diety abonamentowe i jednorazowe. Zbilansowane, sycące — dostarczamy każdego ranka pod drzwi.", price: "od 35 zł/dzień", bg: "bg-[#faf7f0]", img: img.of4, tag: "KAŻDY DZIEŃ" },
+  {
+    nr: "01",
+    name: "Catering firmowy",
+    desc: "Codzienne lunche i przerwy kawowe dla biur. Zdrowe, smaczne posiłki — od poniedziałku do piątku, dostarczane punktualnie.",
+    price: "od 28 zł/os.",
+    tag: "Codziennie",
+    img: img.of1,
+  },
+  {
+    nr: "02",
+    name: "Eventy i konferencje",
+    desc: "Bufety, przerwy kawowe, kolacje galowe. Obsługujemy 20–2000 uczestników — kompleksowo, z pełną obsługą sali.",
+    price: "od 65 zł/os.",
+    tag: "Do 2000 os.",
+    img: img.of2,
+  },
+  {
+    nr: "03",
+    name: "Wesela i przyjęcia",
+    desc: "Menu weselne, tort od naszego cukiernika, obsługa kelnerska i dekoracja stołów. Twój wielki dzień w najlepszych rękach.",
+    price: "od 180 zł/os.",
+    tag: "Niezapomniane",
+    img: img.of3,
+  },
+  {
+    nr: "04",
+    name: "Pudełka lunchowe",
+    desc: "Diety abonamentowe i jednorazowe. Zbilansowane, sycące — dostarczamy każdego ranka prosto pod drzwi.",
+    price: "od 35 zł/dzień",
+    tag: "Każdy dzień",
+    img: img.of4,
+  },
 ];
 
 const przystawki = [
@@ -47,16 +74,36 @@ const desery = [
   ["Sernik na zimno z owocami", "14 zł"],
 ];
 const pakiety = [
-  ["Pakiet Biznes (3 dania)", "89 zł/os."],
-  ["Pakiet Premium (5 dań)", "145 zł/os."],
-  ["Pakiet Weselny (7 dań)", "220 zł/os."],
+  ["Pakiet Biznes — 3 dania", "89 zł/os."],
+  ["Pakiet Premium — 5 dań", "145 zł/os."],
+  ["Pakiet Weselny — 7 dań", "220 zł/os."],
 ];
 
 const opinie = [
-  { name: "Katarzyna Wiśniewska", role: "HR Manager, TechPol S.A.", text: "Smaczna Uczta obsługuje nasze firmowe lunche od 2 lat. Jakość niezmiennie doskonała, dostawy zawsze na czas. Pracownicy są zachwyceni!", stars: 5, bg: "bg-[#f4a200]" },
-  { name: "Piotr i Marzena Jabłońscy", role: "Para młoda, wesele 2024", text: "Wesele marzeń! Menu weselne było hitem — goście do dziś wspominają kaczkę w pomarańczach i tort czekoladowy.", stars: 5, bg: "bg-[#faf7f0]" },
-  { name: "Tomasz Malinowski", role: "Dyrektor, IT Summit", text: "Obsługiwali catering dla 450 uczestników naszej konferencji. Logistyka bezbłędna, jedzenie świeże, ekipa profesjonalna.", stars: 5, bg: "bg-[#e23b2e]" },
-  { name: "Agnieszka Kowalik", role: "Klientka diety pudełkowej", text: "Zamawiam pudełka od 6 miesięcy. Porcje sycące, naprawdę smaczne. Schudłam 8 kg bez uczucia głodu!", stars: 5, bg: "bg-[#2f9e44]" },
+  {
+    name: "Katarzyna Wiśniewska",
+    role: "HR Manager, TechPol S.A.",
+    text: "Smaczna Uczta obsługuje nasze firmowe lunche od 2 lat. Jakość niezmiennie doskonała, dostawy zawsze na czas. Pracownicy są zachwyceni!",
+    stars: 5,
+  },
+  {
+    name: "Piotr i Marzena Jabłońscy",
+    role: "Para młoda, wesele 2024",
+    text: "Wesele marzeń! Menu weselne było hitem — goście do dziś wspominają kaczkę w pomarańczach i tort czekoladowy. Dziękujemy z całego serca.",
+    stars: 5,
+  },
+  {
+    name: "Tomasz Malinowski",
+    role: "Dyrektor, IT Summit",
+    text: "Obsługiwali catering dla 450 uczestników naszej konferencji. Logistyka bezbłędna, jedzenie świeże i smaczne, ekipa w pełni profesjonalna.",
+    stars: 5,
+  },
+  {
+    name: "Agnieszka Kowalik",
+    role: "Klientka diety pudełkowej",
+    text: "Zamawiam pudełka od 6 miesięcy. Porcje sycące, naprawdę smaczne i zróżnicowane. Schudłam 8 kg bez uczucia głodu — polecam każdemu!",
+    stars: 5,
+  },
 ];
 ---
 
@@ -66,256 +113,343 @@ const opinie = [
 >
 
   <!-- ===== NAV ===== -->
-  <nav id="nav" class="fixed inset-x-0 z-40 border-b-[3px] border-[#0d0d0d] bg-[#f5f0e8]">
-    <div class="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 lg:px-8">
-      <a href="#top" class="disp nb nb-shadow inline-block bg-[#e23b2e] px-3 py-1.5 text-xl text-[#faf7f0] rot-n2">SMACZNA UCZTA</a>
-      <div class="hidden items-center gap-1 md:flex">
+  <nav id="nav" class="fixed inset-x-0 z-40 bg-[#faf7f0]">
+    <div class="mx-auto flex max-w-[1360px] items-center justify-between px-6 py-4 lg:px-10">
+
+      <!-- Logo / brand -->
+      <a href="#top" class="serif text-xl tracking-tight text-[#2b211f]">
+        Smaczna&nbsp;<em>Uczta</em>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden items-center gap-8 md:flex">
         {(["O nas", "Oferta", "Menu", "Opinie", "Kontakt"] as const).map((l, i) => (
-          <a href={`#${["o-nas","oferta","menu","opinie","kontakt"][i]}`} class="mono nb2 nb-press bg-[#f5f0e8] px-3 py-1.5 text-xs font-bold uppercase">{l}</a>
+          <a
+            href={`#${["o-nas","oferta","menu","opinie","kontakt"][i]}`}
+            class="mono text-[0.68rem] uppercase tracking-widest text-[#7a6a60] transition-colors hover:text-[#241c1a]"
+          >{l}</a>
         ))}
-        <a href="#formularz" class="mono nb nb-shadow nb-press bg-[#f4a200] px-4 py-1.5 text-xs font-bold uppercase text-[#0d0d0d]">Zamów wycenę →</a>
+        <a
+          href="#formularz"
+          class="mono bg-[#d8462f] px-5 py-2.5 text-[0.68rem] uppercase tracking-widest text-[#faf7f0] transition-opacity hover:opacity-80"
+        >Zamów wycenę</a>
       </div>
-      <button id="burger" class="nb2 bg-[#f4a200] px-3 py-2 md:hidden" aria-label="Menu">
-        <span class="disp text-sm">MENU</span>
+
+      <!-- Mobile burger -->
+      <button id="burger" aria-label="Menu" class="flex flex-col gap-1.5 md:hidden">
+        <span class="block h-px w-6 bg-[#2b211f]"></span>
+        <span class="block h-px w-6 bg-[#2b211f]"></span>
+        <span class="block h-px w-4 bg-[#2b211f]"></span>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden border-t-[3px] border-[#0d0d0d] bg-[#f5f0e8] px-4 py-4 md:hidden">
-      <div class="mono flex flex-col gap-2 text-sm font-bold uppercase">
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden border-t border-[#d9cfc0] bg-[#faf7f0] px-6 py-6 md:hidden">
+      <div class="mono flex flex-col gap-5 text-sm uppercase tracking-widest text-[#7a6a60]">
         <a href="#o-nas">O nas</a>
         <a href="#oferta">Oferta</a>
         <a href="#menu">Menu</a>
         <a href="#opinie">Opinie</a>
         <a href="#kontakt">Kontakt</a>
-        <a href="#formularz" class="nb bg-[#e23b2e] px-4 py-2 text-center text-[#faf7f0]">Zamów wycenę →</a>
+        <a href="#formularz" class="inline-block bg-[#d8462f] px-5 py-3 text-center text-[#faf7f0]">Zamów wycenę</a>
       </div>
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <header id="top" class="relative overflow-hidden px-4 pb-12 pt-28 lg:px-8 lg:pt-32">
-    <div class="mx-auto max-w-[1400px]">
-      <div class="grid items-start gap-8 lg:grid-cols-[1.5fr_1fr]">
 
-        <!-- Lewa kolumna: ogromna typografia -->
-        <div class="relative">
-          <span class="mono nb nb-shadow-red inline-block bg-[#f5f0e8] px-3 py-1 text-xs font-bold uppercase rot-2">★ Catering z pasją od 2012</span>
-          <h1 class="disp mt-4 text-[18vw] leading-[0.82] lg:text-[11vw]">
-            <span class="block">SMACZNA</span>
-            <span class="block text-[#e23b2e]">UCZTA.</span>
-            <span class="block stroke-ink">JEDZENIE</span>
-            <span class="block text-[#2f9e44]">KTÓRE ŻYŁ</span>
+  <!-- ===== HERO ===== -->
+  <header id="top" class="relative overflow-hidden bg-[#faf7f0] pt-28 lg:pt-36">
+    <div class="mx-auto max-w-[1360px] px-6 lg:px-10">
+
+      <!-- Kicker -->
+      <div class="flex items-center gap-4 pb-6">
+        <span class="section-num">— Catering z pasją od 2012</span>
+        <span class="flex-1 rule-line max-w-[120px]"></span>
+        <span class="mono text-[0.6rem] uppercase tracking-widest text-[#7a6a60]">Warszawa i Mazowsze</span>
+      </div>
+
+      <!-- Ogromny nagłówek + foto — układ asymetryczny -->
+      <div class="grid items-end gap-0 lg:grid-cols-[1.1fr_0.9fr]">
+
+        <!-- Typografia -->
+        <div class="pb-10 lg:pb-16">
+          <h1 class="hero-word">
+            <span class="block">Smaczna</span>
+            <span class="block text-[#d8462f] italic">Uczta.</span>
           </h1>
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#formularz" class="disp nb nb-shadow nb-press bg-[#e23b2e] px-7 py-4 text-lg text-[#faf7f0]">ZAMÓW WYCENĘ →</a>
-            <a href="#oferta" class="mono nb2 nb-press bg-[#f5f0e8] px-5 py-4 text-sm font-bold uppercase">Zobacz ofertę</a>
+          <p class="mt-8 max-w-md text-[1.05rem] leading-relaxed text-[#7a6a60]">
+            Profesjonalny catering dla firm, wesel i eventów.
+            Gotujemy ze świeżych, lokalnych składników —
+            bo jedzenie powinno sprawiać prawdziwą radość.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#formularz" class="bg-[#2b211f] px-8 py-4 font-medium text-[#faf7f0] transition-opacity hover:opacity-80">
+              Zapytaj o wycenę
+            </a>
+            <a href="#oferta" class="mono border border-[#d9cfc0] px-6 py-4 text-[0.72rem] uppercase tracking-widest text-[#7a6a60] transition-colors hover:border-[#2b211f] hover:text-[#241c1a]">
+              Pełna oferta →
+            </a>
           </div>
-          <!-- Stats -->
-          <div class="mt-10 flex flex-wrap gap-4">
-            {[["12+", "LAT"], ["2400+", "EVENTÓW"], ["98%", "ZADOW."]].map(([n, l]) => (
-              <div class="nb nb-shadow bg-[#f4a200] px-4 py-3 text-center">
-                <p class="disp text-3xl">{n}</p>
-                <p class="mono text-[10px] font-bold uppercase">{l}</p>
+          <!-- Statystyki inline -->
+          <div class="mt-12 flex flex-wrap gap-10 border-t border-[#d9cfc0] pt-8">
+            {[["12+", "lat doświadczenia"], ["2400+", "zrealizowanych eventów"], ["98%", "zadowolonych klientów"]].map(([n, l]) => (
+              <div>
+                <p class="serif text-3xl text-[#2b211f]">{n}</p>
+                <p class="mono mt-1 text-[0.65rem] uppercase tracking-wider text-[#7a6a60]">{l}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <!-- Prawa kolumna: zdjęcie z naklejkami -->
-        <div class="relative mt-4 lg:mt-8">
-          <div class="nb nb-shadow-lg overflow-hidden bg-[#0d0d0d] rot-2">
-            <img src={img.hero} alt="Apetyczny stół cateringowy" class="aspect-[4/5] w-full object-cover" />
-          </div>
-          <!-- naklejki -->
-          <div class="disp absolute -bottom-4 -left-6 nb nb-shadow bg-[#e23b2e] px-4 py-3 text-2xl text-[#faf7f0] rot-1">
-            APETYCZNIE<br />GWARANTOWANE
-          </div>
-          <div class="mono absolute -right-4 top-4 nb nb-shadow-yellow bg-[#f4a200] px-3 py-2 text-xs font-bold rot-3">
-            4.9★ / 380 opinii
-          </div>
-          <div class="mono absolute bottom-20 -right-5 nb nb-shadow-green bg-[#2f9e44] px-3 py-2 text-xs font-bold text-[#faf7f0] rot-n2">
-            LOKALNE<br />SKŁADNIKI
+        <!-- Zdjęcie — wysunięte, wychodzi poza grid -->
+        <div class="relative flex justify-end">
+          <!-- dekoracyjna oliwkowa blokada -->
+          <div class="absolute bottom-0 right-0 hidden h-4/5 w-3/4 bg-[#6b7a3a]/10 lg:block" style="transform: translate(2rem, 2rem);"></div>
+          <div class="photo-frame relative overflow-hidden lg:-mb-px" style="max-width: 520px; width: 100%;">
+            <img
+              src={img.hero}
+              alt="Elegancki stół cateringowy Smaczna Uczta"
+              class="aspect-[3/4] w-full object-cover"
+            />
+            <!-- badge nad zdjęciem -->
+            <div class="absolute bottom-6 left-6 bg-[#faf7f0] px-4 py-3" style="border: 1px solid #d9cfc0;">
+              <p class="mono text-[0.6rem] uppercase tracking-widest text-[#7a6a60]">Ocena klientów</p>
+              <p class="serif text-2xl text-[#2b211f]">4,9 <span class="text-[#d8462f]">★</span></p>
+              <p class="mono text-[0.6rem] tracking-wider text-[#7a6a60]">380+ opinii Google</p>
+            </div>
           </div>
         </div>
 
       </div>
     </div>
+    <!-- Full-width kreska -->
+    <div class="mt-0 border-t border-[#d9cfc0]"></div>
   </header>
 
-  <!-- ===== MARQUEE ===== -->
-  <section class="overflow-hidden border-y-[3px] border-[#0d0d0d] bg-[#e23b2e] py-3">
-    <div class="flex whitespace-nowrap">
-      <div class="marquee-track flex shrink-0">
-        {[...marqueeWords, ...marqueeWords].map((w) => (
-          <span class="disp mx-8 text-2xl text-[#faf7f0]">{w} <span class="text-[#f4a200]">✦</span></span>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- ===== O NAS ===== -->
-  <section id="o-nas" class="px-4 py-16 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-[1400px]">
-      <div class="grid gap-10 lg:grid-cols-2 items-start">
+  <section id="o-nas" class="px-6 py-20 lg:px-10 lg:py-28">
+    <div class="mx-auto max-w-[1360px]">
 
-        <!-- Kolaż zdjęć asymetryczny -->
-        <div class="relative h-[480px] reveal">
-          <div class="nb nb-shadow-lg absolute top-0 left-0 w-3/4 overflow-hidden rot-n2">
-            <img src={img.onas1} alt="Nasz szef kuchni przy pracy" class="aspect-[4/3] w-full object-cover" />
+      <!-- Nagłówek sekcji -->
+      <div class="mb-14 flex items-center gap-6">
+        <span class="section-num">01 / O nas</span>
+        <span class="rule-line max-w-[200px]"></span>
+      </div>
+
+      <div class="grid items-start gap-16 lg:grid-cols-[1.2fr_1fr]">
+
+        <!-- Kolaż zdjęć: nachodzące, eleganckie -->
+        <div class="reveal relative" style="min-height: 520px;">
+          <!-- Duże zdjęcie -->
+          <div class="photo-frame overflow-hidden" style="width: 76%; position: relative; z-index: 1;">
+            <img src={img.onas1} alt="Szef kuchni Smaczna Uczta przy pracy" class="aspect-[4/3] w-full object-cover" />
           </div>
-          <div class="nb nb-shadow absolute bottom-0 right-0 w-3/5 overflow-hidden rot-2">
+          <!-- Mniejsze zdjęcie nachodzące -->
+          <div class="photo-frame absolute overflow-hidden" style="width: 54%; bottom: 0; right: 0; z-index: 2; border: 1px solid #d9cfc0;">
             <img src={img.onas2} alt="Apetyczne potrawy cateringowe" class="aspect-[4/3] w-full object-cover" />
           </div>
-          <!-- naklejka rok -->
-          <div class="mono nb nb-shadow-red absolute -left-3 bottom-32 bg-[#e23b2e] px-4 py-3 text-[#faf7f0] rot-1">
-            <p class="disp text-4xl">2012</p>
-            <p class="text-[10px] font-bold uppercase">rok założenia</p>
+          <!-- Rok założenia — typograficzny akcent -->
+          <div class="absolute hidden lg:block" style="left: -1.5rem; bottom: 3rem; z-index: 3;">
+            <p class="serif text-[5rem] leading-none text-[#d9cfc0]">2012</p>
+            <p class="mono text-[0.6rem] uppercase tracking-widest text-[#7a6a60]">rok założenia</p>
           </div>
         </div>
 
         <!-- Tekst -->
         <div class="reveal-right">
-          <h2 class="disp text-[12vw] leading-none lg:text-7xl">
-            <span class="bg-[#0d0d0d] px-2 text-[#faf7f0]">GOTUJEMY</span><br />
-            <span class="text-[#2f9e44]">Z MIŁOŚCI</span>
+          <h2 class="serif text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] text-[#2b211f]">
+            Gotujemy<br /><em class="text-[#d8462f]">z miłości</em><br />do smaku.
           </h2>
-          <p class="mt-6 max-w-lg leading-relaxed text-[#3a3a3a]">
-            Smaczna Uczta narodziła się w 2012 roku z prostej idei: każdy zasługuje na jedzenie,
-            które sprawia prawdziwą radość. Założycielka <strong>Marta Kowalczyk</strong> połączyła
-            domową tradycję kulinarną z profesjonalnym cateringiem.
+
+          <p class="drop-cap mt-8 leading-relaxed text-[#7a6a60]">
+            Smaczna Uczta narodziła się w 2012 roku z prostej idei: każdy
+            zasługuje na jedzenie, które sprawia prawdziwą radość. Założycielka
+            <strong class="text-[#241c1a]">Marta Kowalczyk</strong> połączyła domową tradycję
+            kulinarną z profesjonalnym cateringiem, tworząc markę, która zmienia
+            sposób myślenia o jedzeniu na eventach.
           </p>
-          <p class="mt-4 max-w-lg leading-relaxed text-[#3a3a3a]">
+
+          <p class="mt-5 leading-relaxed text-[#7a6a60]">
             Dziś tworzymy zespół 18 pasjonatów. Współpracujemy wyłącznie z lokalnymi dostawcami:
-            świeże warzywa od mazowieckich rolników, sery z podwarszawskich mleczarni, mięso od
-            sprawdzonych hodowców. Żadnych półproduktów — tylko prawdziwe gotowanie.
+            świeże warzywa od mazowieckich rolników, sery z podwarszawskich mleczarni,
+            mięso od sprawdzonych hodowców. Żadnych półproduktów — tylko prawdziwe gotowanie.
           </p>
-          <!-- wartości jako naklejki -->
-          <div class="mt-8 flex flex-wrap gap-3">
-            {["Lokalne składniki", "Doświadczeni szefowie", "Eko opakowania", "Punktualność"].map((v, i) => (
-              <span class={`mono nb2 nb-press px-3 py-1.5 text-xs font-bold uppercase ${i % 2 === 0 ? "bg-[#f4a200]" : "bg-[#2f9e44] text-[#faf7f0]"}`}>{v}</span>
+
+          <!-- Wartości jako elegancka lista -->
+          <ul class="mt-10 space-y-3 border-t border-[#d9cfc0] pt-8">
+            {["Lokalne, sezonowe składniki", "Doświadczeni szefowie kuchni", "Eko opakowania i zero odpadów", "Punktualność i pełna obsługa"].map((v) => (
+              <li class="flex items-center gap-3 text-[0.9rem] text-[#241c1a]">
+                <span class="h-px w-5 bg-[#d8462f] flex-shrink-0"></span>
+                {v}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ===== OFERTA (rotowane karty) ===== -->
-  <section id="oferta" class="border-t-[3px] border-[#0d0d0d] px-4 py-16 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-[1400px]">
-      <h2 class="disp text-[12vw] leading-none lg:text-7xl">
-        <span class="bg-[#0d0d0d] px-3 text-[#f4a200]">OFERTA</span>
-      </h2>
-      <p class="mono mt-3 text-sm font-bold uppercase text-[#3a3a3a]">// od codziennych lunchów po spektakularne wesela</p>
 
-      <div class="mt-12 grid gap-8 sm:grid-cols-2">
+  <!-- ===== OFERTA ===== -->
+  <section id="oferta" class="bg-[#2b211f] px-6 py-20 lg:px-10 lg:py-28">
+    <div class="mx-auto max-w-[1360px]">
+
+      <!-- Nagłówek -->
+      <div class="mb-14 flex items-center gap-6">
+        <span class="section-num text-[#efe7d6]/50">02 / Oferta</span>
+        <span class="flex-1 rule-line max-w-[200px]" style="background: rgba(239,231,214,0.2);"></span>
+        <span class="serif text-[clamp(2.8rem,6vw,5rem)] leading-none text-[#faf7f0]">Co <em class="text-[#d8462f]">robimy.</em></span>
+      </div>
+
+      <!-- Grid ofert: asymetryczny, 2+2 z różnymi proporcjami -->
+      <div class="grid gap-px bg-[#efe7d6]/10 sm:grid-cols-2">
         {oferta.map((o, i) => (
-          <div class={`reveal nb nb-shadow nb-press ${o.bg} relative overflow-hidden ${i % 2 === 0 ? "rot-1" : "rot-2"}`}>
-            <!-- zdjęcie na górze -->
-            <div class="nb2 border-x-0 border-t-0 overflow-hidden" style="border-bottom: 3px solid #0d0d0d;">
-              <img src={o.img} alt={o.name} loading="lazy" class="aspect-[16/9] w-full object-cover" />
+          <article class={`reveal group relative overflow-hidden bg-[#2b211f] p-8 lg:p-10 ${i === 1 ? "lg:mt-16" : ""} ${i === 3 ? "lg:-mt-8" : ""}`}>
+            <!-- Zdjęcie w cienkiej ramce -->
+            <div class="mb-6 overflow-hidden" style="border: 1px solid rgba(239,231,214,0.15);">
+              <img
+                src={o.img}
+                alt={o.name}
+                loading="lazy"
+                class="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-105"
+              />
             </div>
-            <div class="p-6">
-              <div class="flex items-start justify-between">
-                <span class="disp text-5xl text-[#0d0d0d]/30">{o.nr}</span>
-                <span class="mono nb2 bg-[#f5f0e8] px-3 py-1 text-sm font-bold">{o.price}</span>
-              </div>
-              <h3 class="disp mt-3 text-3xl">{o.name}</h3>
-              <p class="mt-2 max-w-xs text-[15px] leading-snug">{o.desc}</p>
-              <!-- naklejka tagu -->
-              <span class="mono absolute right-3 top-3 nb bg-[#0d0d0d] px-2 py-1 text-[10px] font-bold uppercase text-[#f4a200] rot-3">{o.tag}</span>
+
+            <div class="flex items-start justify-between">
+              <span class="serif text-[4rem] leading-none text-[#efe7d6]/15">{o.nr}</span>
+              <span class="mono mt-1 text-[0.62rem] uppercase tracking-widest text-[#d8462f]">{o.tag}</span>
             </div>
-          </div>
+
+            <h3 class="serif mt-2 text-[1.8rem] leading-tight text-[#faf7f0]">{o.name}</h3>
+            <p class="mt-3 leading-relaxed text-[#efe7d6]/70 text-[0.9rem]">{o.desc}</p>
+
+            <div class="mt-6 flex items-center justify-between border-t border-[#efe7d6]/10 pt-5">
+              <span class="serif text-xl text-[#6b7a3a]">{o.price}</span>
+              <a href="#formularz" class="mono text-[0.68rem] uppercase tracking-widest text-[#efe7d6]/50 transition-colors hover:text-[#faf7f0]">
+                Zapytaj →
+              </a>
+            </div>
+          </article>
         ))}
       </div>
+
     </div>
   </section>
 
-  <!-- ===== MENU (paragon / receipts) ===== -->
-  <section id="menu" class="border-t-[3px] border-[#0d0d0d] bg-[#0d0d0d] px-4 py-16 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-[1400px]">
-      <h2 class="disp text-[12vw] leading-none text-[#faf7f0] lg:text-7xl">
-        NASZE<br /><span class="text-[#f4a200]">MENU</span>
-      </h2>
-      <p class="mono mt-3 text-sm font-bold uppercase text-[#faf7f0]/50">// sezonowe składniki · autorskie przepisy · odrobina miłości</p>
 
-      <!-- zdjęcia przekrzywione -->
-      <div class="mt-10 flex flex-wrap gap-6 items-end reveal">
-        <div class="nb nb-shadow overflow-hidden rot-n2 w-52 lg:w-64">
-          <img src={img.menu1} alt="Świeże potrawy" loading="lazy" class="aspect-[3/4] w-full object-cover transition hover:scale-105" />
+  <!-- ===== MENU DEGUSTACYJNE ===== -->
+  <section id="menu" class="px-6 py-20 lg:px-10 lg:py-28">
+    <div class="mx-auto max-w-[1360px]">
+
+      <!-- Nagłówek -->
+      <div class="mb-14 flex items-start gap-6">
+        <div>
+          <div class="mb-4 flex items-center gap-4">
+            <span class="section-num">03 / Menu</span>
+            <span class="rule-line max-w-[100px]"></span>
+          </div>
+          <h2 class="serif text-[clamp(2.8rem,6vw,5rem)] leading-[1.0] text-[#2b211f]">
+            Smaki,<br />które <em class="text-[#d8462f]">pamiętasz.</em>
+          </h2>
         </div>
-        <div class="nb nb-shadow overflow-hidden rot-2 w-52 lg:w-64">
-          <img src={img.menu2} alt="Stół cateringowy" loading="lazy" class="aspect-[4/3] w-full object-cover transition hover:scale-105" />
-        </div>
-        <div class="nb nb-shadow bg-[#e23b2e] px-6 py-8 rot-1">
-          <p class="disp text-5xl text-[#faf7f0]">SMAKI,<br />KTÓRE<br />PAMI&#x0118;-<br />TASZ.</p>
+        <!-- Zdjęcie w prawym rogu nagłówka — editorial touch -->
+        <div class="reveal-right ml-auto hidden pt-2 lg:block" style="width: 240px; flex-shrink: 0;">
+          <div class="photo-frame overflow-hidden">
+            <img src={img.menu3} alt="Eleganckie potrawy" loading="lazy" class="aspect-[3/4] w-full object-cover" />
+          </div>
+          <p class="mono mt-2 text-[0.6rem] uppercase tracking-wider text-[#7a6a60]">Sezonowe składniki · autorskie przepisy</p>
         </div>
       </div>
 
-      <!-- menu karty w stylu paragonu -->
-      <div class="mt-14 grid gap-6 md:grid-cols-3">
+      <!-- Zdjęcia menu -->
+      <div class="reveal mb-14 flex flex-wrap items-end gap-4">
+        <div class="photo-frame overflow-hidden" style="width: clamp(160px, 22vw, 260px);">
+          <img src={img.menu1} alt="Świeże potrawy cateringowe" loading="lazy" class="aspect-[3/4] w-full object-cover" />
+        </div>
+        <div class="photo-frame overflow-hidden" style="width: clamp(200px, 30vw, 360px); margin-top: 2rem;">
+          <img src={img.menu2} alt="Stół cateringowy Smaczna Uczta" loading="lazy" class="aspect-[16/10] w-full object-cover" />
+        </div>
+        <!-- Tekstowy blok jak pull-quote -->
+        <div class="ml-auto hidden max-w-[220px] border-l-2 border-[#d8462f] pl-6 lg:block">
+          <p class="serif text-[1.8rem] leading-tight text-[#2b211f]">
+            „Jedzenie to miłość zamknięta w smaku."
+          </p>
+          <p class="mono mt-3 text-[0.62rem] uppercase tracking-wider text-[#7a6a60]">— Marta Kowalczyk, założycielka</p>
+        </div>
+      </div>
+
+      <!-- Karty menu w stylu magazynowym -->
+      <div class="grid gap-8 md:grid-cols-3">
 
         <!-- Przystawki -->
-        <div class="reveal nb nb-shadow-yellow bg-[#faf7f0] p-6 rot-1">
-          <div class="flex items-center justify-between border-b-[3px] border-dashed border-[#0d0d0d] pb-4">
-            <span class="disp text-2xl">PRZYSTAWKI</span>
-            <span class="mono text-xs font-bold">🥗</span>
+        <div class="reveal">
+          <div class="mb-5 border-b border-[#d9cfc0] pb-3">
+            <p class="mono text-[0.62rem] uppercase tracking-[0.2em] text-[#7a6a60]">Rozdział I</p>
+            <h3 class="serif mt-1 text-2xl text-[#2b211f]">Przystawki</h3>
           </div>
-          <ul class="mt-4 space-y-3">
+          <ul class="space-y-3">
             {przystawki.map(([n, p]) => (
-              <li class="mono flex items-end gap-1 text-sm font-bold">
-                <span class="uppercase leading-tight">{n}</span>
-                <span class="mb-1 flex-1 border-b-2 border-dotted border-[#0d0d0d]/30"></span>
-                <span class="bg-[#f4a200] px-2 whitespace-nowrap">{p}</span>
+              <li class="flex items-end text-[0.88rem]">
+                <span class="text-[#241c1a]">{n}</span>
+                <span class="dot-leader"></span>
+                <span class="mono flex-shrink-0 text-[#d8462f]">{p}</span>
               </li>
             ))}
           </ul>
         </div>
 
         <!-- Dania główne -->
-        <div class="reveal nb nb-shadow-red bg-[#2f9e44] p-6 rot-n2">
-          <div class="flex items-center justify-between border-b-[3px] border-dashed border-[#faf7f0]/60 pb-4">
-            <span class="disp text-2xl text-[#faf7f0]">DANIA GŁÓWNE</span>
-            <span class="mono text-xs font-bold text-[#faf7f0]">🍖</span>
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <div class="mb-5 border-b border-[#d9cfc0] pb-3">
+            <p class="mono text-[0.62rem] uppercase tracking-[0.2em] text-[#7a6a60]">Rozdział II</p>
+            <h3 class="serif mt-1 text-2xl text-[#2b211f]">Dania główne</h3>
           </div>
-          <ul class="mt-4 space-y-3">
+          <ul class="space-y-3">
             {dania.map(([n, p]) => (
-              <li class="mono flex items-end gap-1 text-sm font-bold">
-                <span class="uppercase leading-tight text-[#faf7f0]/90">{n}</span>
-                <span class="mb-1 flex-1 border-b-2 border-dotted border-[#faf7f0]/30"></span>
-                <span class="bg-[#faf7f0] px-2 whitespace-nowrap text-[#0d0d0d]">{p}</span>
+              <li class="flex items-end text-[0.88rem]">
+                <span class="text-[#241c1a]">{n}</span>
+                <span class="dot-leader"></span>
+                <span class="mono flex-shrink-0 text-[#d8462f]">{p}</span>
               </li>
             ))}
           </ul>
         </div>
 
         <!-- Desery + pakiety -->
-        <div class="reveal space-y-6">
-          <div class="nb nb-shadow-yellow bg-[#faf7f0] p-6 rot-2">
-            <div class="flex items-center justify-between border-b-[3px] border-dashed border-[#0d0d0d] pb-4">
-              <span class="disp text-2xl">DESERY</span>
-              <span class="mono text-xs font-bold">🍰</span>
+        <div class="reveal space-y-8" style="transition-delay: 0.2s;">
+          <div>
+            <div class="mb-5 border-b border-[#d9cfc0] pb-3">
+              <p class="mono text-[0.62rem] uppercase tracking-[0.2em] text-[#7a6a60]">Rozdział III</p>
+              <h3 class="serif mt-1 text-2xl text-[#2b211f]">Desery</h3>
             </div>
-            <ul class="mt-4 space-y-2">
+            <ul class="space-y-3">
               {desery.map(([n, p]) => (
-                <li class="mono flex items-end gap-1 text-sm font-bold">
-                  <span class="uppercase leading-tight">{n}</span>
-                  <span class="mb-1 flex-1 border-b-2 border-dotted border-[#0d0d0d]/30"></span>
-                  <span class="bg-[#e23b2e] px-2 whitespace-nowrap text-[#faf7f0]">{p}</span>
+                <li class="flex items-end text-[0.88rem]">
+                  <span class="text-[#241c1a]">{n}</span>
+                  <span class="dot-leader"></span>
+                  <span class="mono flex-shrink-0 text-[#d8462f]">{p}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div class="nb nb-shadow bg-[#f4a200] p-5 rot-1">
-            <p class="disp text-xl">PAKIETY KOMPLETNE</p>
-            <ul class="mt-3 space-y-2">
+
+          <!-- Pakiety — elegancki akcent -->
+          <div class="bg-[#2b211f] p-6">
+            <p class="mono mb-4 text-[0.62rem] uppercase tracking-[0.2em] text-[#efe7d6]/50">Pakiety kompletne</p>
+            <ul class="space-y-3">
               {pakiety.map(([n, p]) => (
-                <li class="mono flex justify-between text-sm font-bold">
-                  <span>{n}</span><span class="bg-[#0d0d0d] px-2 text-[#f4a200]">{p}</span>
+                <li class="flex items-end text-[0.88rem]">
+                  <span class="text-[#faf7f0]">{n}</span>
+                  <span class="dot-leader" style="border-color: rgba(239,231,214,0.2);"></span>
+                  <span class="mono flex-shrink-0 text-[#6b7a3a]">{p}</span>
                 </li>
               ))}
             </ul>
-            <a href="#formularz" class="mono mt-4 inline-block text-xs font-bold uppercase underline underline-offset-2">Indywidualna wycena →</a>
+            <a href="#formularz" class="mono mt-5 inline-block border-b border-[#d8462f] pb-0.5 text-[0.68rem] uppercase tracking-widest text-[#d8462f]">
+              Indywidualna wycena →
+            </a>
           </div>
         </div>
 
@@ -323,34 +457,58 @@ const opinie = [
     </div>
   </section>
 
-  <!-- ===== FORMULARZ ===== -->
-  <section id="formularz" class="border-t-[3px] border-[#0d0d0d] px-4 py-16 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-[1400px]">
-      <div class="grid gap-12 lg:grid-cols-[1fr_1.3fr] items-start">
 
-        <!-- Lewa: nagłówek -->
+  <!-- ===== FORMULARZ ===== -->
+  <section id="formularz" class="bg-[#efe7d6] px-6 py-20 lg:px-10 lg:py-28">
+    <div class="mx-auto max-w-[1360px]">
+
+      <div class="mb-4 flex items-center gap-4">
+        <span class="section-num">04 / Zapytanie</span>
+        <span class="rule-line max-w-[100px]"></span>
+      </div>
+
+      <div class="grid gap-16 lg:grid-cols-[1fr_1.4fr] items-start">
+
+        <!-- Lewa: nagłówek + kontakt -->
         <div>
-          <h2 class="disp text-[13vw] leading-[0.85] lg:text-8xl">
-            ZAPYTAJ<br />O<br /><span class="text-[#e23b2e]">OFERTĘ.</span>
+          <h2 class="serif text-[clamp(3rem,7vw,5.5rem)] leading-[1.0] text-[#2b211f]">
+            Zapytaj<br />o <em class="text-[#d8462f]">ofertę.</em>
           </h2>
-          <div class="mono mt-8 space-y-2 text-sm font-bold uppercase">
-            <p class="nb2 inline-block bg-[#f4a200] px-3 py-1">ul. Chmielna 15/3, Warszawa</p><br />
-            <p class="nb2 inline-block bg-[#2f9e44] px-3 py-1 text-[#faf7f0]">Pon–Pt: 8:00–18:00 / Sob: 9:00–14:00</p><br />
-            <p class="nb2 inline-block bg-[#f5f0e8] px-3 py-1">+48 22 123 45 67</p><br />
-            <p class="nb2 inline-block bg-[#f5f0e8] px-3 py-1">kontakt@smaczna-uczta.pl</p>
+          <p class="mt-6 leading-relaxed text-[#7a6a60]">
+            Odpiszemy w ciągu 24 godzin. Wycena zawsze gratis i bez żadnych zobowiązań.
+          </p>
+
+          <div class="mt-10 space-y-5 border-t border-[#d9cfc0] pt-8">
+            {[
+              ["Adres", "ul. Chmielna 15/3, 00-021 Warszawa"],
+              ["Telefon", "+48 22 123 45 67 / +48 500 987 654"],
+              ["E-mail", "kontakt@smaczna-uczta.pl"],
+              ["Godziny", "Pon–Pt: 8:00–18:00 · Sob: 9:00–14:00"],
+            ].map(([label, value]) => (
+              <div class="flex gap-4">
+                <span class="mono w-16 flex-shrink-0 text-[0.62rem] uppercase tracking-wider text-[#7a6a60]">{label}</span>
+                <span class="text-[0.9rem] text-[#241c1a]">{value}</span>
+              </div>
+            ))}
           </div>
-          <div class="mono mt-6 nb nb-shadow-yellow bg-[#0d0d0d] p-4 inline-block rot-n2">
-            <p class="text-xs font-bold uppercase text-[#f4a200]">Odpiszemy w ciągu 24h.</p>
-            <p class="text-xs text-[#faf7f0]/70">Wycena zawsze gratis i bez zobowiązań.</p>
+
+          <!-- Social linki -->
+          <div class="mt-8 flex gap-5">
+            {[["Facebook", "https://facebook.com"], ["Instagram", "https://instagram.com"], ["LinkedIn", "https://linkedin.com"]].map(([name, href]) => (
+              <a href={href} target="_blank" rel="noopener noreferrer" class="mono text-[0.68rem] uppercase tracking-widest text-[#7a6a60] transition-colors hover:text-[#241c1a]">
+                {name}
+              </a>
+            ))}
           </div>
         </div>
 
         <!-- Prawa: formularz -->
-        <form class="nb nb-shadow-lg bg-[#faf7f0] p-6 lg:p-8 reveal" novalidate>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <label class="mono text-xs font-bold uppercase">Typ eventu *
-              <select required class="nb2 mt-1 w-full bg-[#f5f0e8] px-3 py-3 font-mono text-sm outline-none focus:bg-[#f4a200]">
-                <option value="" disabled selected>Wybierz...</option>
+        <form class="reveal bg-[#faf7f0] p-8 lg:p-10" style="border: 1px solid #d9cfc0;" novalidate>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <label class="block">
+              <span class="mono mb-2 block text-[0.65rem] uppercase tracking-widest text-[#7a6a60]">Typ eventu *</span>
+              <select required class="field">
+                <option value="" disabled selected>Wybierz rodzaj...</option>
                 <option>Catering firmowy</option>
                 <option>Event / konferencja</option>
                 <option>Wesele / przyjęcie</option>
@@ -358,118 +516,151 @@ const opinie = [
                 <option>Inne</option>
               </select>
             </label>
-            <label class="mono text-xs font-bold uppercase">Liczba osób *
-              <input type="number" min="1" placeholder="np. 50" required class="nb2 mt-1 w-full bg-[#f5f0e8] px-3 py-3 font-mono text-sm outline-none focus:bg-[#f4a200]" />
+            <label class="block">
+              <span class="mono mb-2 block text-[0.65rem] uppercase tracking-widest text-[#7a6a60]">Liczba osób *</span>
+              <input type="number" min="1" placeholder="np. 50" required class="field" />
             </label>
-            <label class="mono text-xs font-bold uppercase">Planowany termin
-              <input type="date" class="nb2 mt-1 w-full bg-[#f5f0e8] px-3 py-3 font-mono text-sm outline-none focus:bg-[#f4a200]" />
+            <label class="block">
+              <span class="mono mb-2 block text-[0.65rem] uppercase tracking-widest text-[#7a6a60]">Planowany termin</span>
+              <input type="date" class="field" />
             </label>
-            <label class="mono text-xs font-bold uppercase">Imię i nazwisko *
-              <input type="text" placeholder="Anna Nowak" required class="nb2 mt-1 w-full bg-[#f5f0e8] px-3 py-3 font-mono text-sm outline-none focus:bg-[#f4a200]" />
+            <label class="block">
+              <span class="mono mb-2 block text-[0.65rem] uppercase tracking-widest text-[#7a6a60]">Imię i nazwisko *</span>
+              <input type="text" placeholder="Anna Nowak" required class="field" />
             </label>
-            <label class="mono text-xs font-bold uppercase sm:col-span-2">Adres e-mail *
-              <input type="email" placeholder="anna@firma.pl" required class="nb2 mt-1 w-full bg-[#f5f0e8] px-3 py-3 font-mono text-sm outline-none focus:bg-[#f4a200]" />
+            <label class="block sm:col-span-2">
+              <span class="mono mb-2 block text-[0.65rem] uppercase tracking-widest text-[#7a6a60]">Adres e-mail *</span>
+              <input type="email" placeholder="anna@firma.pl" required class="field" />
             </label>
-            <label class="mono text-xs font-bold uppercase">Telefon
-              <input type="tel" placeholder="+48 500 000 000" class="nb2 mt-1 w-full bg-[#f5f0e8] px-3 py-3 font-mono text-sm outline-none focus:bg-[#f4a200]" />
+            <label class="block">
+              <span class="mono mb-2 block text-[0.65rem] uppercase tracking-widest text-[#7a6a60]">Telefon</span>
+              <input type="tel" placeholder="+48 500 000 000" class="field" />
             </label>
-            <label class="mono text-xs font-bold uppercase sm:col-span-2">Wiadomość / szczegóły
-              <textarea rows="4" placeholder="Opisz szczegóły eventu, preferencje żywieniowe, budżet…" class="nb2 mt-1 w-full resize-none bg-[#f5f0e8] px-3 py-3 font-mono text-sm outline-none focus:bg-[#f4a200]"></textarea>
+            <label class="block sm:col-span-2">
+              <span class="mono mb-2 block text-[0.65rem] uppercase tracking-widest text-[#7a6a60]">Wiadomość / szczegóły</span>
+              <textarea rows="4" placeholder="Opisz szczegóły eventu, preferencje żywieniowe, budżet…" class="field resize-none"></textarea>
             </label>
           </div>
-          <button type="submit" class="disp nb nb-shadow nb-press mt-5 w-full bg-[#e23b2e] px-6 py-4 text-xl text-[#faf7f0]">WYŚLIJ ZAPYTANIE →</button>
-          <p class="mono mt-3 text-center text-[10px] uppercase text-[#0d0d0d]/40">Dane służą wyłącznie do przygotowania wyceny · Smaczna Uczta sp. z o.o.</p>
+
+          <button
+            type="submit"
+            class="serif mt-6 w-full bg-[#2b211f] px-6 py-4 text-xl italic text-[#faf7f0] transition-opacity hover:opacity-80"
+          >
+            Wyślij zapytanie →
+          </button>
+          <p class="mono mt-4 text-center text-[0.6rem] uppercase tracking-wider text-[#7a6a60]">
+            Dane służą wyłącznie do przygotowania wyceny · Smaczna Uczta sp. z o.o.
+          </p>
         </form>
 
       </div>
     </div>
   </section>
 
-  <!-- ===== OPINIE ===== -->
-  <section id="opinie" class="border-t-[3px] border-[#0d0d0d] bg-[#0d0d0d] px-4 py-16 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-[1400px]">
-      <h2 class="disp text-[12vw] leading-none text-[#faf7f0] lg:text-7xl">
-        OPINIE<span class="text-[#e23b2e]">.</span>
-      </h2>
-      <p class="mono mt-2 text-sm font-bold uppercase text-[#faf7f0]/40">// co mówią nasi klienci</p>
 
-      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+  <!-- ===== OPINIE ===== -->
+  <section id="opinie" class="px-6 py-20 lg:px-10 lg:py-28">
+    <div class="mx-auto max-w-[1360px]">
+
+      <div class="mb-14 flex items-center gap-6">
+        <span class="section-num">05 / Opinie</span>
+        <span class="rule-line max-w-[100px]"></span>
+        <h2 class="serif text-[clamp(2rem,4.5vw,3.5rem)] leading-none text-[#2b211f]">
+          Co mówią <em class="text-[#d8462f]">klienci.</em>
+        </h2>
+      </div>
+
+      <!-- Grid opinii: 2 duże + 2 mniejsze, asymetria przez różne paddingi -->
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {opinie.map((op, i) => (
-          <div class={`reveal nb nb-shadow ${op.bg} p-6 ${i % 2 === 0 ? "rot-1" : "rot-n2"}`}>
-            <!-- gwiazdki -->
-            <div class="flex gap-0.5 mb-4">
+          <article
+            class={`reveal bg-[#faf7f0] p-6 lg:p-8 ${i === 1 ? "lg:mt-10" : ""} ${i === 3 ? "lg:mt-6" : ""}`}
+            style="border: 1px solid #d9cfc0;"
+          >
+            <!-- Cudzysłów dekoracyjny -->
+            <p class="serif text-5xl leading-none text-[#d9cfc0]">"</p>
+            <!-- Gwiazdki -->
+            <div class="mb-4 flex gap-0.5">
               {Array.from({ length: op.stars }).map(() => (
-                <span class="text-[#e23b2e] text-lg">★</span>
+                <span class="text-[#d8462f] text-sm">★</span>
               ))}
             </div>
-            <p class="mono text-sm leading-snug font-bold">„{op.text}"</p>
-            <div class="mt-5 border-t-2 border-[#0d0d0d] pt-3">
-              <p class="disp text-xl">{op.name}</p>
-              <p class="mono text-[10px] font-bold uppercase text-[#0d0d0d]/60">{op.role}</p>
+            <p class="leading-relaxed text-[#241c1a] text-[0.9rem]">{op.text}</p>
+            <div class="mt-6 border-t border-[#d9cfc0] pt-5">
+              <p class="serif text-lg text-[#2b211f]">{op.name}</p>
+              <p class="mono mt-1 text-[0.62rem] uppercase tracking-wider text-[#7a6a60]">{op.role}</p>
             </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Trust badges — prosta, elegancka linia -->
+      <div class="reveal mt-16 flex flex-wrap items-center gap-10 border-t border-[#d9cfc0] pt-10">
+        {[
+          ["Catering Roku 2023", "Mazowsze Food Awards"],
+          ["4,9 / 5 na Google", "ponad 380 opinii"],
+          ["Zaufany Partner", "PKPP Lewiatan"],
+        ].map(([title, sub]) => (
+          <div>
+            <p class="serif text-lg text-[#2b211f]">{title}</p>
+            <p class="mono mt-1 text-[0.62rem] uppercase tracking-wider text-[#7a6a60]">{sub}</p>
           </div>
         ))}
       </div>
 
-      <!-- Trust badges -->
-      <div class="mt-14 flex flex-wrap gap-6 reveal">
-        {[
-          ["🏆", "CATERING ROKU 2023", "Mazowsze Food Awards"],
-          ["⭐", "4,9/5 NA GOOGLE", "ponad 380 opinii"],
-          ["🤝", "ZAUFANY PARTNER", "PKPP Lewiatan"],
-        ].map(([icon, title, sub]) => (
-          <div class="nb nb-shadow bg-[#faf7f0] px-5 py-4 rot-1">
-            <p class="text-2xl">{icon}</p>
-            <p class="disp text-lg">{title}</p>
-            <p class="mono text-xs font-bold uppercase text-[#0d0d0d]/50">{sub}</p>
-          </div>
-        ))}
-      </div>
     </div>
   </section>
 
+
   <!-- ===== KONTAKT ===== -->
-  <section id="kontakt" class="border-t-[3px] border-[#0d0d0d] px-4 py-16 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-[1400px]">
-      <h2 class="disp text-[12vw] leading-none lg:text-7xl">
-        <span class="bg-[#2f9e44] px-3 text-[#faf7f0]">KONTAKT</span>
-      </h2>
-      <p class="mono mt-3 text-sm font-bold uppercase">// jesteśmy blisko · Warszawa i Mazowsze</p>
+  <section id="kontakt" class="bg-[#2b211f] px-6 py-20 lg:px-10 lg:py-28">
+    <div class="mx-auto max-w-[1360px]">
 
-      <div class="mt-12 grid gap-10 lg:grid-cols-2 items-start">
+      <div class="mb-14 flex items-center gap-6">
+        <span class="section-num text-[#efe7d6]/40">06 / Kontakt</span>
+        <span class="flex-1 rule-line max-w-[100px]" style="background: rgba(239,231,214,0.2);"></span>
+        <h2 class="serif text-[clamp(2rem,4.5vw,3.5rem)] leading-none text-[#faf7f0]">
+          Jesteśmy <em class="text-[#6b7a3a]">blisko.</em>
+        </h2>
+      </div>
 
-        <!-- Info karty -->
+      <div class="grid gap-12 lg:grid-cols-2 items-start">
+
+        <!-- Info kontaktowe -->
         <div class="reveal">
-          <div class="grid sm:grid-cols-2 gap-5 mb-8">
+          <div class="grid grid-cols-2 gap-6 mb-10">
             {[
-              { label: "Adres", lines: ["ul. Chmielna 15/3", "00-021 Warszawa"], bg: "bg-[#f4a200]" },
-              { label: "Telefon", lines: ["+48 22 123 45 67", "+48 500 987 654"], bg: "bg-[#2f9e44]" },
-              { label: "E-mail", lines: ["kontakt@smaczna-uczta.pl", "wycena@smaczna-uczta.pl"], bg: "bg-[#faf7f0]" },
-              { label: "Godziny pracy", lines: ["Pon–Pt: 8:00–18:00", "Sob: 9:00–14:00"], bg: "bg-[#e23b2e]" },
-            ].map(({ label, lines, bg }, i) => (
-              <div class={`nb nb-shadow ${bg} p-5 ${i % 2 === 0 ? "rot-1" : "rot-n2"} ${bg === "bg-[#2f9e44]" || bg === "bg-[#e23b2e]" ? "text-[#faf7f0]" : ""}`}>
-                <p class="mono text-xs font-bold uppercase mb-2 opacity-60">{label}</p>
+              { label: "Adres", lines: ["ul. Chmielna 15/3", "00-021 Warszawa"] },
+              { label: "Telefon", lines: ["+48 22 123 45 67", "+48 500 987 654"] },
+              { label: "E-mail", lines: ["kontakt@smaczna-uczta.pl", "wycena@smaczna-uczta.pl"] },
+              { label: "Godziny pracy", lines: ["Pon–Pt: 8:00–18:00", "Sob: 9:00–14:00"] },
+            ].map(({ label, lines }) => (
+              <div style="border-top: 1px solid rgba(239,231,214,0.15);" class="pt-4">
+                <p class="mono mb-2 text-[0.6rem] uppercase tracking-[0.2em] text-[#efe7d6]/40">{label}</p>
                 {lines.map((line) => (
-                  <p class="disp text-xl">{line}</p>
+                  <p class="serif text-[1.05rem] text-[#faf7f0]">{line}</p>
                 ))}
               </div>
             ))}
           </div>
+
           <!-- Social -->
-          <div class="flex flex-wrap gap-3">
+          <div class="flex gap-6">
             {[["Facebook", "https://facebook.com"], ["Instagram", "https://instagram.com"], ["LinkedIn", "https://linkedin.com"]].map(([name, href]) => (
-              <a href={href} target="_blank" rel="noopener noreferrer" class="mono nb2 nb-press bg-[#f5f0e8] px-4 py-2 text-xs font-bold uppercase">{name}</a>
+              <a href={href} target="_blank" rel="noopener noreferrer" class="mono text-[0.68rem] uppercase tracking-widest text-[#efe7d6]/50 transition-colors hover:text-[#faf7f0]">
+                {name}
+              </a>
             ))}
           </div>
         </div>
 
         <!-- Mapa OSM -->
-        <div class="reveal-right nb nb-shadow-lg overflow-hidden" style="height: 380px;">
+        <div class="reveal-right overflow-hidden" style="border: 1px solid rgba(239,231,214,0.15); height: 380px;">
           <iframe
             src="https://www.openstreetmap.org/export/embed.html?bbox=20.993%2C52.228%2C21.025%2C52.248&layer=mapnik&marker=52.2381%2C21.009"
             width="100%"
             height="100%"
-            style="border: 0;"
+            style="border: 0; filter: grayscale(0.3);"
             allowfullscreen
             loading="lazy"
             title="Mapa — Smaczna Uczta, ul. Chmielna 15/3, Warszawa"
@@ -480,42 +671,65 @@ const opinie = [
     </div>
   </section>
 
+
   <!-- ===== FOOTER ===== -->
-  <footer class="border-t-[3px] border-[#0d0d0d] bg-[#0d0d0d] px-4 py-12 text-[#faf7f0] lg:px-8">
-    <div class="mx-auto max-w-[1400px]">
-      <div class="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+  <footer class="border-t border-[#d9cfc0] bg-[#faf7f0] px-6 py-12 lg:px-10">
+    <div class="mx-auto max-w-[1360px]">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <span class="disp text-3xl">SMACZNA UCZTA</span>
-          <p class="mono mt-2 text-xs font-bold uppercase text-[#faf7f0]/40">Catering · Warszawa i Mazowsze</p>
+          <p class="serif text-2xl text-[#2b211f]">Smaczna <em>Uczta</em></p>
+          <p class="mono mt-1 text-[0.62rem] uppercase tracking-wider text-[#7a6a60]">Catering · Warszawa i Mazowsze</p>
         </div>
-        <div class="mono flex flex-wrap gap-3 text-xs font-bold uppercase">
+        <div class="mono flex flex-wrap gap-6 text-[0.68rem] uppercase tracking-widest text-[#7a6a60]">
           {["#o-nas", "#oferta", "#menu", "#opinie", "#kontakt"].map((href, i) => (
-            <a href={href} class="nb2 border-[#faf7f0]/30 px-3 py-1 hover:bg-[#e23b2e] hover:border-[#e23b2e] transition-colors">
+            <a href={href} class="transition-colors hover:text-[#241c1a]">
               {["O nas","Oferta","Menu","Opinie","Kontakt"][i]}
             </a>
           ))}
         </div>
       </div>
-      <div class="mono mt-10 flex flex-col gap-2 border-t border-[#faf7f0]/10 pt-6 text-center text-xs uppercase text-[#faf7f0]/50 sm:flex-row sm:justify-between">
+
+      <div class="mono mt-10 flex flex-col gap-2 border-t border-[#d9cfc0] pt-6 text-center text-[0.65rem] uppercase tracking-wider text-[#7a6a60] sm:flex-row sm:justify-between">
         <span>© {new Date().getFullYear()} Smaczna Uczta sp. z o.o. Wszelkie prawa zastrzeżone.</span>
         <span>
-          Przykładowa strona zrobiona przez
-          <a href="https://stronainternetowa.biz" target="_blank" rel="noopener" class="bg-[#f4a200] px-1 text-[#0d0d0d] font-bold">stronainternetowa.biz</a>
+          Przykładowa strona zrobiona przez&nbsp;<a
+            href="https://stronainternetowa.biz"
+            target="_blank"
+            rel="noopener"
+            class="text-[#2b211f] underline underline-offset-2 hover:text-[#d8462f] transition-colors"
+          >stronainternetowa.biz</a>
         </span>
       </div>
     </div>
   </footer>
 
   <style>
+    /* Nav scrolled */
     #nav.scrolled {
-      background: color-mix(in srgb, var(--color-krem) 93%, transparent);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 6px 0 -3px var(--color-ink);
+      background: color-mix(in srgb, var(--color-papier) 92%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
     }
-    /* form focus */
-    select:focus, input:focus, textarea:focus {
-      outline: 3px solid var(--color-red) !important;
-      outline-offset: 0;
+
+    /* Form elements */
+    .field {
+      display: block;
+      width: 100%;
+      background: #faf7f0;
+      border: 1px solid #d9cfc0;
+      padding: 0.75rem 1rem;
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 0.9rem;
+      color: #241c1a;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field:focus {
+      border-color: #d8462f;
+      box-shadow: 0 0 0 3px rgba(216, 70, 47, 0.12);
     }
   </style>
+
 </Layout>
