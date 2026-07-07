@@ -36,4 +36,4 @@ npm run preview
 
 ---
 
-Przykładowa strona zrobiona przez [stronainternetowa.biz](https://stronainternetowa.biz)
+Przykładowa strona zrobiona przez [100strona.pl](https://100strona.pl)
